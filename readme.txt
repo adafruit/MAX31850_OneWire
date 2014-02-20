@@ -1,6 +1,10 @@
 
-OneWire library for Arduino
----------------------------
+OneWire library for Arduino with MAX31850 support
+-------------------------------------------------
+
+=================================================================
+This version is based on V2.0 from pjrc but with MAX31850 support
+=================================================================
 
 Version 2.0 fixes search bugs (thanks to Robin James) and interrupt issues.
 http://www.pjrc.com/teensy/td_libs_OneWire.html
