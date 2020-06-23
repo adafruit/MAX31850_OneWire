@@ -1,10 +1,9 @@
+# Adafruit MAX31850 OneWire [![Build Status](https://github.com/adafruit/MAX31850_OneWire/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/MAX31850_OneWire/actions)[![Documentation](https://github.com/adafruit/ci-arduino/blob/master/assets/doxygen_badge.svg)](http://adafruit.github.io/MAX31850_OneWire/html/index.html)
 
 OneWire library for Arduino with MAX31850 support
 -------------------------------------------------
 
-=================================================================
 This version is based on V2.0 from pjrc but with MAX31850 support
-=================================================================
 
 Version 2.0 fixes search bugs (thanks to Robin James) and interrupt issues.
 http://www.pjrc.com/teensy/td_libs_OneWire.html
