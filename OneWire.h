@@ -141,26 +141,27 @@
 #define DIRECT_WRITE_HIGH(base, mask) ((*((base) + 6)) = (mask))
 
 #elif defined(__SAMD51__)
-#define PIN_TO_BASEREG(pin)             portModeRegister(digitalPinToPort(pin))
-#define PIN_TO_BITMASK(pin)             (digitalPinToBitMask(pin))
+#define PIN_TO_BASEREG(pin) portModeRegister(digitalPinToPort(pin))
+#define PIN_TO_BITMASK(pin) (digitalPinToBitMask(pin))
 #define IO_REG_TYPE uint32_t
 #define IO_REG_ASM
-#define DIRECT_READ(base, mask)         (((*((base)+8)) & (mask)) ? 1 : 0) // IN
-#define DIRECT_MODE_INPUT(base, mask)   ((*((base)+1)) = (mask)) // DIRCLR
-#define DIRECT_MODE_OUTPUT(base, mask)  ((*((base)+2)) = (mask)) // DIRSET
-#define DIRECT_WRITE_LOW(base, mask)    ((*((base)+5)) = (mask)) // OUTCLR
-#define DIRECT_WRITE_HIGH(base, mask)   ((*((base)+6)) = (mask)) /// OUTSET
+#define DIRECT_READ(base, mask) (((*((base) + 8)) & (mask)) ? 1 : 0) // IN
+#define DIRECT_MODE_INPUT(base, mask) ((*((base) + 1)) = (mask))     // DIRCLR
+#define DIRECT_MODE_OUTPUT(base, mask) ((*((base) + 2)) = (mask))    // DIRSET
+#define DIRECT_WRITE_LOW(base, mask) ((*((base) + 5)) = (mask))      // OUTCLR
+#define DIRECT_WRITE_HIGH(base, mask) ((*((base) + 6)) = (mask))     /// OUTSET
 
 #elif defined(ARDUINO_NRF52_ADAFRUIT)
-#define PIN_TO_BASEREG(pin)             (0)
-#define PIN_TO_BITMASK(pin)             digitalPinToPinName(pin)
+#define PIN_TO_BASEREG(pin) (0)
+#define PIN_TO_BITMASK(pin) digitalPinToPinName(pin)
 #define IO_REG_TYPE uint32_t
 #define IO_REG_ASM
-#define DIRECT_READ(base, pin)          nrf_gpio_pin_read(pin)
-#define DIRECT_WRITE_LOW(base, pin)     nrf_gpio_pin_clear(pin)
-#define DIRECT_WRITE_HIGH(base, pin)    nrf_gpio_pin_set(pin)
-#define DIRECT_MODE_INPUT(base, pin)    nrf_gpio_cfg_input(pin, NRF_GPIO_PIN_NOPULL)
-#define DIRECT_MODE_OUTPUT(base, pin)   nrf_gpio_cfg_output(pin)
+#define DIRECT_READ(base, pin) nrf_gpio_pin_read(pin)
+#define DIRECT_WRITE_LOW(base, pin) nrf_gpio_pin_clear(pin)
+#define DIRECT_WRITE_HIGH(base, pin) nrf_gpio_pin_set(pin)
+#define DIRECT_MODE_INPUT(base, pin)                                           \
+  nrf_gpio_cfg_input(pin, NRF_GPIO_PIN_NOPULL)
+#define DIRECT_MODE_OUTPUT(base, pin) nrf_gpio_cfg_output(pin)
 
 #else
 #error "Please define I/O register types here"
