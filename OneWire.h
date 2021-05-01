@@ -129,7 +129,7 @@
 #define DIRECT_WRITE_LOW(base, mask) (GPOC = (mask)) // GPIO_OUT_W1TC_ADDRESS
 #define DIRECT_WRITE_HIGH(base, mask) (GPOS = (mask)) // GPIO_OUT_W1TS_ADDRESS
 
-#elif defined(__SAMD21G18A__)
+#elif defined(__SAMD21G18A__) || defined(__SAMD21E18A__)
 #define PIN_TO_BASEREG(pin) portModeRegister(digitalPinToPort(pin))
 #define PIN_TO_BITMASK(pin) (digitalPinToBitMask(pin))
 #define IO_REG_TYPE uint32_t
